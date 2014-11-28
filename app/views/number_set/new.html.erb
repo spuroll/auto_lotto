@@ -1,2 +1,7 @@
-<h1>NumberSet#new</h1>
-<p>Find me in app/views/number_set/new.html.erb</p>
+
+<%= form_for(:number_set, :url => {:action => "create"}) do |f| %>
+  
+  <%= f.text_field :set %>
+
+<%= submit_tag("Add Numbers") %>
+<% end %>

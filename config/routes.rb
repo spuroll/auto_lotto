@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   root "application#hello"
 
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+
+
 end

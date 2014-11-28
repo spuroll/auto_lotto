@@ -10,6 +10,18 @@ class NumberSetController < ApplicationController
   def new
     @set = NumberSet.new
   end
+  
+  def create
+    @number_set = NumberSet.new(number_params)
+    @user = User.find(1)
+      if @number_set.save
+        @user.number_sets << @number_set
+        redirect_to(:action => 'index')
+      else
+        render('new')
+      end
+
+  end
 
   def edit
     @set = NumberSet.find(params[:id])
@@ -18,4 +30,9 @@ class NumberSetController < ApplicationController
   def delete
     @set = NumberSet.find(params[:id])
   end
+  
+  def number_params 
+    params.require(:number_set).permit(:set)
+  end
+  
 end
