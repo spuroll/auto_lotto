@@ -16,7 +16,7 @@ class NumberSetController < ApplicationController
     @user = User.find(1)
       if @number_set.save
         @user.number_sets << @number_set
-        redirect_to(:action => 'index')
+        redirect_to @number_set
       else
         render('new')
       end
