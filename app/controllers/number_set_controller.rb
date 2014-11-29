@@ -24,11 +24,22 @@ class NumberSetController < ApplicationController
   end
 
   def edit
-    @set = NumberSet.find(params[:id])
+    @number_set = NumberSet.find(params[:id])
+  end
+  
+  def update
+    @number_set = NumberSet.find(params[:id])
+    if @number_set.update_attributes(number_params)
+      redirect_to(:action => 'index')
+    else
+      render('edit')
+    end
   end
 
   def delete
-    @set = NumberSet.find(params[:id])
+    NumberSet.find(params[:id]).destroy
+    redirect_to(:action => 'index')
+    
   end
   
   def number_params 
