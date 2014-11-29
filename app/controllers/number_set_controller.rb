@@ -13,7 +13,7 @@ class NumberSetController < ApplicationController
   
   def create
     @number_set = NumberSet.new(number_params)
-    @user = User.find(1)
+    @user = User.find(2)
       if @number_set.save
         @user.number_sets << @number_set
         redirect_to(:action => 'index')
