@@ -23,6 +23,12 @@
           <%= link_to "[X]", :controller => "Email", :action => "destroy", :id => email.id %>
         <% end %>
         
+        <%= form_for(:email, :url => {:controller => "email", :action => "create"}) do |f|%>
+          <%= f.text_field :email %>
+          <%= f.hidden_field :number_set_id, :value => set.id %>
+          <%= submit_tag("Add Email") %>
+        <% end %>
+        
       </td>
     <% end %>
   </tr>
