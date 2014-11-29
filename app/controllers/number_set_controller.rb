@@ -36,7 +36,7 @@ class NumberSetController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     NumberSet.find(params[:id]).destroy
     redirect_to(:action => 'index')
     

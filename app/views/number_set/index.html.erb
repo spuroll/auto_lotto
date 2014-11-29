@@ -12,7 +12,7 @@
         <h3><%= set.set %>
           <font size=1>
             <%= link_to "Edit", :action => "edit", :id => set.id %>
-            <%= link_to "Delete", :action => "delete", :id => set.id %>
+            <%= link_to "Delete", :action => "destroy", :id => set.id %>
           </font>
         </h3>
         Set owner: <%= set.user.name %><br><br>
@@ -20,6 +20,7 @@
         
         <% set.emails.each do |email| %>
           <br><%= email.email %>
+          <%= link_to "[X]", :controller => "Email", :action => "destroy", :id => email.id %>
         <% end %>
         
       </td>
