@@ -1,7 +1,12 @@
+<%= form_for(:number_set, :url => {:action => "create"}) do |f| %> 
+  <table align = center>
+    <tr><th>Enter number set with spaces (## ## ## ## ## ##):</th>
+    <td><%= f.text_field :set %></td></tr>
+    <tr><th>Enter check date in year, month, day format (YYYY-MM-DD):</th>
+    <td><%= f.text_field :check_date %></td></tr>
+  </table>
 
-<%= form_for(:number_set, :url => {:action => "create"}) do |f| %>
-  
-  <%= f.text_field :set %>
-  <%= submit_tag("Add Numbers") %>
-
+  <div align=center><%= submit_tag("Add Numbers") %></div>
 <% end %>
+
+

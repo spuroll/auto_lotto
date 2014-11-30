@@ -44,7 +44,7 @@ class NumberSetController < ApplicationController
   end
   
   def number_params 
-    params.require(:number_set).permit(:set)
+    params.require(:number_set).permit(:set, :check_date)
   end
   
 end
