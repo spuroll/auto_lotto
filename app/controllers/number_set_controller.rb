@@ -13,6 +13,7 @@ class NumberSetController < ApplicationController
   
   def create
     @number_set = NumberSet.new(number_params)
+    @number_set.fresh = true
     @user = User.find(2)
       if @number_set.save
         @user.number_sets << @number_set
