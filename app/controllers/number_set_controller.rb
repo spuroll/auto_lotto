@@ -1,6 +1,7 @@
 class NumberSetController < ApplicationController
   def index
     @sets = NumberSet.all
+    @nevada_now = DateTime.now - 8.hours
   end
 
   def show

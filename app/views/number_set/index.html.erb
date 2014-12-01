@@ -3,7 +3,9 @@
 <h1 align="center">Number Sets<br>
 <font size=2><%= link_to "(Add More)", :action => "new" %></font>
 </h1>
-
+<div align=center>Current Date/Time in Nevada: <%= @nevada_now.to_formatted_s(:db) %>
+<br>Numbers checked at 21:00:00 on the dates specified below.
+</div>
 
 <table align="center">
   <tr>
@@ -17,6 +19,14 @@
         </h3>
         Drawing: <%= set.check_date.to_date %><br><br>
         Set owner: <%= set.user.name %><br><br>
+        Expired? : 
+        <% if set.check_date < DateTime.now %>
+          Yes
+        <% else %>
+          No
+        <% end %>
+        
+        <br><br>
         Associated Emails: 
         
         <% set.emails.each do |email| %>
