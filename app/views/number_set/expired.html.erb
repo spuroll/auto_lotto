@@ -1,15 +1,14 @@
 <body>
-<%= link_to "Expired tickets (Archive)", :action => "expired"%>     
-<h1 align="center">Active Tickets<br>
-<font size=2><%= link_to "(Add More)", :action => "new" %></font>
+<%= link_to "<Back to current tickets", :action => "index"%>    
+<h1 align="center">Expired Tickets<br>
 </h1>
 <div align=center>Current Date/Time in Nevada: <%= @nevada_now.to_formatted_s(:db) %>
-<br>Numbers checked at 21:00:00 on the 'drawing' dates specified below.
+<br>Numbers were checked at 21:00:00 on the 'drawing' dates specified below.
 </div>
 
 <table align="center">
   <tr>
-    <% @sets.each do |set| %>
+    <% @expired_sets.each do |set| %>
       <td align=center>
         <h3><%= set.set %>
           <font size=1>

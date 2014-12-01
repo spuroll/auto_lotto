@@ -5,7 +5,21 @@ class NumberSetController < ApplicationController
   end
 
   def show
+    
     @set = NumberSet.find(params[:id])
+    
+  end
+  
+  def expired
+    @nevada_now = DateTime.now - 8.hours
+    sets = NumberSet.all
+    @expired_sets = Array.new
+    
+    sets.each do |set|
+      if set.check_date < @nevada_now
+        @expired_sets << set
+      end
+    end
   end
 
   def new
