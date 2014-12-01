@@ -1,28 +1,32 @@
 <body>
-<%= link_to "<Back to current tickets", :action => "index"%>    
+<%= link_to "<Return to active tickets", :action => "index"%>    
 <h1 align="center">Expired Tickets<br>
 </h1>
 <div align=center>Current Date/Time in Nevada: <%= @nevada_now.to_formatted_s(:db) %>
 <br>Numbers were checked at 21:00:00 on the 'drawing' dates specified below.
 </div>
-
+<br>
 <table align="center">
   <tr>
     <% @expired_sets.each do |set| %>
-      <td align=center>
-        <h3><%= set.set %>
+      <td align="center" bgcolor="gray">
+        <h3><%= set.set %><br>
+        <font size = 4> Drawing: <%= set.check_date.to_date %></font><br>
           <font size=1>
             <%= link_to "Edit", :action => "edit", :id => set.id %>
             <%= link_to "Delete", :action => "destroy", :id => set.id %>
           </font>
         </h3>
-        Drawing: <%= set.check_date.to_date %><br><br>
-        Ticket Holder: <%= set.user.name %><br><br>
-        Associated Emails: 
+        Ticket Holder: <%= set.user.name %><br>
+        Group Member Emails: 
         
         <% set.emails.each do |email| %>
-          <br><%= email.email %>
-          <%= link_to "[X]", :controller => "Email", :action => "destroy", :id => email.id %>
+          <br><strong><font size = 2><%= email.email %>
+          <%= link_to "[X]", :controller => "Email", :action => "destroy", :id => email.id %></font></strong>
+        <% end %>
+        
+        <% if set.emails == [] %>
+          <br><strong><font size = 2>(none)</font></strong>
         <% end %>
         
         <%= form_for(:email, :url => {:controller => "email", :action => "create"}) do |f|%>
@@ -36,5 +40,8 @@
   </tr>
 </table>
 
+<% if @expired_sets == [] %>
+  <br><br><div align=center><font color=red>No expired tickets in the system.</font></div>
+<% end %>  
 
 </body>
