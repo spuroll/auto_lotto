@@ -1,6 +1,11 @@
 <%= form_for(:number_set, :url => {:action => "update", :id => @number_set.id}) do |f| %>
   
-  <%= f.text_field :set %>
+  <table align = center>
+    <tr><th>Modify number set (## ## ## ## ## ##):</th>
+    <td><%= f.text_field :set %></td></tr>
+    <tr><th>Modify draw date (YYYY-MM-DD):</th>
+    <td><%= f.text_field :check_date, :value => @number_set.check_date.to_date %></td></tr>
+  </table>
 
-<%= submit_tag("Edit Numbers") %>
+  <div align=center><%= submit_tag("Edit Entry") %></div>
 <% end %>
