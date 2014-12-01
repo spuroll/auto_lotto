@@ -1,7 +1,14 @@
 class NumberSetController < ApplicationController
   def index
-    @sets = NumberSet.all
     @nevada_now = DateTime.now - 8.hours
+    sets = NumberSet.all
+    @active_sets = Array.new
+    
+    sets.each do |set|
+      if set.check_date > @nevada_now
+        @active_sets << set
+      end 
+    end
   end
 
   def show
