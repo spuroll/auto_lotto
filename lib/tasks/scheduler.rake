@@ -56,13 +56,20 @@ task :send_emails => :environment do
       check = set.set
       @check = check
 
-      ticketnum_one = check[0..1].to_i
-      ticketnum_two = check[3..4].to_i
-      ticketnum_three = check[6..7].to_i
-      ticketnum_four = check[9..10].to_i
-      ticketnum_five = check[12..13].to_i
-      ticketnum_six = check[15..16].to_i  
-
+      ticketnum_one = check[0..1]
+      ticketnum_two = check[3..4]
+      ticketnum_three = check[6..7]
+      ticketnum_four = check[9..10]
+      ticketnum_five = check[12..13]
+      ticketnum_six = check[15..16]
+      
+      ticketnum_one.to_i
+      ticketnum_two.to_i
+      ticketnum_three.to_i
+      ticketnum_four.to_i      
+      ticketnum_five.to_i
+      ticketnum_six.to_i
+      
       @checkstring = String.new
       if num_one == ticketnum_one
         @checkstring << "X"
