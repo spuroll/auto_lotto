@@ -63,7 +63,7 @@ task :send_emails => :environment do
       ticketnum_five = check[12..13]
       ticketnum_six = check[15..16]
       
-      ticketnum_one.to_i
+      ticketnum_one = ticketnum_one.to_i
       ticketnum_two.to_i
       ticketnum_three.to_i
       ticketnum_four.to_i      
