@@ -43,14 +43,14 @@ class NumberSetController < ApplicationController
   end_five = end_array[4][0] -1
   end_six = end_array[5][0] -1
   
-  @num_one = substring[start_one..end_one]
-  @num_two = substring[start_two..end_two]
-  @num_three = substring[start_three..end_three]
-  @num_four = substring[start_four..end_four]
-  @num_five = substring[start_five..end_five]
-  @num_six = substring[start_six..end_six]
+  num_one = substring[start_one..end_one]
+  num_two = substring[start_two..end_two]
+  num_three = substring[start_three..end_three]
+  num_four = substring[start_four..end_four]
+  num_five = substring[start_five..end_five]
+  num_six = substring[start_six..end_six]
   
-  @last_draw = "#{@num_one} #{@num_two} #{@num_three} #{@num_four} #{@num_five} #{@num_six}"
+  @last_draw = "#{num_one} #{num_two} #{num_three} #{num_four} #{num_five} #{num_six}"
       
   end
 
