@@ -42,7 +42,7 @@ task :send_emails => :environment do
   @last_draw = "#{num_one} #{num_two} #{num_three} #{num_four} #{num_five} #{num_six}"
 
   #Convert to integers for comparison
-  num_one.to_i
+  num_one = num_one.to_i
   num_two.to_i
   num_three.to_i
   num_four.to_i
