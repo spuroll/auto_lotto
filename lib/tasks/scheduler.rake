@@ -54,7 +54,6 @@ task :send_emails => :environment do
   array = NumberSet.all
   array.each do |set|
       check = set.set
-      @check = check
 
       ticketnum_one = check[0..1]
       ticketnum_two = check[3..4]
@@ -62,7 +61,10 @@ task :send_emails => :environment do
       ticketnum_four = check[9..10]
       ticketnum_five = check[12..13]
       ticketnum_six = check[15..16]
-      
+
+      @check = "#{ticketnum_one} #{ticketnum_two} #{ticketnum_three} #{ticketnum_four} #{ticketnum_five} #{ticketnum_six}"
+
+
       ticketnum_one = ticketnum_one.to_i
       ticketnum_two.to_i
       ticketnum_three.to_i
