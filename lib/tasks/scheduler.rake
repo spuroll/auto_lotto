@@ -43,11 +43,11 @@ task :send_emails => :environment do
 
   #Convert to integers for comparison
   num_one = num_one.to_i
-  num_two.to_i
-  num_three.to_i
-  num_four.to_i
-  num_five.to_i
-  num_six.to_i 
+  num_two = num_two.to_i
+  num_three = num_three.to_i
+  num_four = num_four.to_i
+  num_five = num_five.to_i
+  num_six = num_six.to_i 
 
 
   #Compare winning numbers to user ticket numbers
@@ -66,11 +66,11 @@ task :send_emails => :environment do
 
 
       ticketnum_one = ticketnum_one.to_i
-      ticketnum_two.to_i
-      ticketnum_three.to_i
-      ticketnum_four.to_i      
-      ticketnum_five.to_i
-      ticketnum_six.to_i
+      ticketnum_two = ticketnum_two.to_i
+      ticketnum_three = ticketnum_three.to_i
+      ticketnum_four = ticketnum_four.to_i      
+      ticketnum_five = ticketnum_five.to_i
+      ticketnum_six = ticketnum_six.to_i
       
       @checkstring = String.new
       if num_one == ticketnum_one
