@@ -53,7 +53,7 @@ task :send_emails => :environment do
   #Compare winning numbers to user ticket numbers
   array = NumberSet.all
   array.each do |set|
-      check = set.numbers
+      check = set.set
       @check = check
 
       ticketnum_one = check[0..1].to_i
