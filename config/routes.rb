@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'access/index'
+
+  get 'access/login'
+
   get 'number_set/index'
 
   get 'number_set/show'
