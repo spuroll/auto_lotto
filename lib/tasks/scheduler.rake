@@ -51,8 +51,17 @@ task :send_emails => :environment do
 
 
   #Compare winning numbers to user ticket numbers
-  array = NumberSet.all
-  array.each do |set|
+  nevada_now = DateTime.now - 8.hours
+  all_array = NumberSet.all
+  check_array = Array.new
+  
+  all_array.each do |set|
+    if set.check_date.to_date == nevada_now.to_date
+      check_array << set
+    end
+  end
+  
+    check_array.each do |set|
       check = set.set
 
       ticketnum_one = check[0..1]
