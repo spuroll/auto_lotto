@@ -66,7 +66,7 @@ class NumberSetController < ApplicationController
     @expired_sets = Array.new
     
     sets.each do |set|
-      if set.check_date < @nevada_now
+      if set.check_date < @nevada_now.to_date
         @expired_sets << set
       end
     end
