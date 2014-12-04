@@ -1,2 +1,24 @@
-<h1>Access#login</h1>
-<p>Find me in app/views/access/login.html.erb</p>
+<% @page_title = "Login" %>
+
+<div align="center" style="color:red"><% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%></div>
+<br><br><br>
+<div class="login" align="center">
+	<%= form_tag(:action => 'attempt_login') do %>
+	  <table>
+	  	<tr>
+	  	  <td><%= label_tag(:name) %></td>
+	  	  <td><%= text_field_tag(:name) %></td>
+	  	</tr>
+	  	<tr>
+  	  	  <td><%= label_tag(:password) %></td>
+	  	  <td><%= password_field_tag(:password) %></td>
+	  	</tr>
+	  	<tr>
+	      <td>&nbsp;</td>
+	      <td><%= submit_tag("Login") %></td>
+	    </tr>
+	  </table>
+	<% end %>
+</div>

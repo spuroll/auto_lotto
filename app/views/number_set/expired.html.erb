@@ -1,5 +1,11 @@
 <body>
-<%= link_to "<Return to active tickets", :action => "index"%>    
+
+<div align=right>
+  <%= link_to "Active Tickets", :action => "index"%> | | 
+  <%= link_to "Expired Tickets", :action => "expired"%> | | 
+  <%= link_to "Logout", {:controller => 'access', :action => 'logout'} %>
+</div>
+ 
 <h1 align="center">Expired Tickets<br>
 </h1>
 <div align=center>Current Date/Time in Nevada: <%= @nevada_now.to_formatted_s(:db) %>

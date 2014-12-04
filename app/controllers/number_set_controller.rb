@@ -1,4 +1,7 @@
 class NumberSetController < ApplicationController
+
+  before_action :confirm_logged_in
+
   def index
     @nevada_now = DateTime.now - 8.hours
     sets = NumberSet.all
