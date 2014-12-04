@@ -8,7 +8,7 @@ class NumberSetController < ApplicationController
     @active_sets = Array.new
     
     sets.each do |set|
-      if set.check_date >= @nevada_now.to_date
+      if set.check_date >= @nevada_now.to_date && set.user_id == session[:user_id]
         @active_sets << set
       end 
     end
@@ -69,7 +69,7 @@ class NumberSetController < ApplicationController
     @expired_sets = Array.new
     
     sets.each do |set|
-      if set.check_date < @nevada_now.to_date
+      if set.check_date < @nevada_now.to_date && set.user_id == session[:user_id]
         @expired_sets << set
       end
     end
