@@ -80,9 +80,10 @@ class NumberSetController < ApplicationController
   end
   
   def create
+    @id = session[:user_id]
     @number_set = NumberSet.new(number_params)
     @number_set.fresh = true
-    @user = User.find(2)
+    @user = User.find(@id)
       if @number_set.save
         @user.number_sets << @number_set
         redirect_to(:action => 'index')
@@ -108,7 +109,6 @@ class NumberSetController < ApplicationController
   def destroy
     NumberSet.find(params[:id]).destroy
     redirect_to(:action => 'index')
-    
   end
   
   def number_params 
