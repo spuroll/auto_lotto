@@ -15,5 +15,9 @@
  */
 
 body {
-	font-family: Arial
+	font-family: Arial;
+}
+
+.tickets {
+    border: 1px solid black;
 }

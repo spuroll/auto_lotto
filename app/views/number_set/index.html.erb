@@ -1,12 +1,18 @@
 <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="logo"><%= link_to "Auto Lotto", :action => "index" %></div>
+        <nav>
+          <ul class="nav navbar-nav pull-right">
+            <div class="navlinks"><%= link_to "Active Tickets", :action => "index"%> | |
+            <%= link_to "Expired Tickets", :action => "expired"%> | | 
+            <%= link_to "Logout", {:controller => 'access', :action => 'logout'} %></div>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-<div align=right>
-  <%= link_to "Active Tickets", :action => "index"%> | | 
-  <%= link_to "Expired Tickets", :action => "expired"%> | | 
-  <%= link_to "Logout", {:controller => 'access', :action => 'logout'} %>
-</div>
-
-<h2 align="center">Most Recent Mega Millions Draw: <%= @last_draw %></h2>
+<h2 align="center">Latest Mega Millions Draw: <%= @last_draw %></h2>
 <h1 align="center">Active Tickets<br>
   <font size=2><%= link_to "(Add More)", :action => "new" %></font>
 </h1>
@@ -17,11 +23,11 @@
 <table align="center">
   <tr>
     <% @active_sets.each do |set| %>
-      <td align="center" bgcolor="gray">
+      <td align="center" bgcolor="LightGrey" class="tickets">
         <h3><%= set.set %><br>
         <font size = 4> Drawing: <%= set.check_date.to_date %></font><br>
-          <font size=1>
-            <%= link_to "Edit", :action => "edit", :id => set.id %>
+          <font size=2>
+            <%= link_to "Edit", :action => "edit", :id => set.id %> || 
             <%= link_to "Delete", :action => "destroy", :id => set.id %>
           </font>
         </h3>
