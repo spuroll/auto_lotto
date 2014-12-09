@@ -21,3 +21,12 @@ body {
 .tickets {
     border: 1px solid black;
 }
+
+.expired_tickets {
+    border: 1px solid black;
+    width: 280px;
+}
+
+.expired_tickets a {
+    color: red;
+}

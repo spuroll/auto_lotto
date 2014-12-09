@@ -20,34 +20,39 @@
 <br>
 <table align="center">
   <tr>
+    <% count = 0 %>
     <% @expired_sets.each do |set| %>
-      <td align="center" bgcolor="gray">
-        <h3><%= set.set %><br>
-        <font size = 4> Drawing: <%= set.check_date.to_date %></font><br>
-          <font size=1>
-            <%= link_to "Edit", :action => "edit", :id => set.id %>
-            <%= link_to "Delete", :action => "destroy", :id => set.id %>
-          </font>
-        </h3>
-        Ticket Holder: <%= set.user.name %><br>
-        Group Member Emails: 
+      <% count += 1 %>
+      <td align="center" bgcolor="LightGrey" class="expired_tickets">
+        <%= image_tag("rip.png", :alt => "RIP", :height => 27) %> <br>
+        <font size = 4> 
+        Winning Numbers: <br></font>
+        <font size = 6>
+        ## ## ## ## ## ##</font><br>
+        <font size = 4>
+        Drawn: <%= set.check_date.to_date %> <br>
+        Your Ticket: <%= set.set %>
+        </font><br>
+        <strong> Group Members Included: 
         
         <% set.emails.each do |email| %>
-          <br><strong><font size = 2><%= email.email %>
-          <%= link_to "[X]", :controller => "Email", :action => "destroy", :id => email.id %></font></strong>
+          <br><font size = 2><%= email.email %></font>
         <% end %>
         
         <% if set.emails == [] %>
-          <br><strong><font size = 2>(none)</font></strong>
+          (none)</strong>
         <% end %>
+        <br>
         
-        <%= form_for(:email, :url => {:controller => "email", :action => "create"}) do |f|%>
-          <%= f.text_field :email %>
-          <%= f.hidden_field :number_set_id, :value => set.id %>
-          <%= submit_tag("Add Email") %>
-        <% end %>
-        
+          <font size=1>
+            <%= link_to "Delete Permanently", :action => "destroy", :id => set.id %>
+          </font>
+        </h3>
       </td>
+      <% if count > 4 %>
+        </tr><tr>
+        <% count = 0 %>
+      <% end %>
     <% end %>
   </tr>
 </table>
