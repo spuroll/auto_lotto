@@ -22,7 +22,9 @@
 <br>
 <table align="center">
   <tr>
+    <% count = 0 %>
     <% @active_sets.each do |set| %>
+      <% count += 1 %>
       <td align="center" bgcolor="LightGrey" class="tickets">
         <h3><%= set.set %><br>
         <font size = 4> Drawing: <%= set.check_date.to_date %></font><br>
@@ -50,6 +52,10 @@
         <% end %>
         
       </td>
+      <% if count > 4 %>
+        </tr><tr>
+        <% count = 0 %>
+      <% end %>
     <% end %>
   </tr>
 </table>
