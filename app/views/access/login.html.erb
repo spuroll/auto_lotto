@@ -8,7 +8,9 @@
 <div align="center" style="color:red"><% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
 <% end -%></div>
+
 <br><br><br>
+
 <div class="login" align="center">
 	<%= form_tag(:action => 'attempt_login') do %>
 	  <table>

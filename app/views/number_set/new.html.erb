@@ -10,6 +10,11 @@
     </nav>
   </div>
 </header>
+
+<div align="center" style="color:red"><% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%></div>
+
 <br><br>    
 <%= form_for(:number_set, :url => {:action => "create"}) do |f| %> 
   <table align = center>

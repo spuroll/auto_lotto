@@ -88,6 +88,7 @@ class NumberSetController < ApplicationController
         @user.number_sets << @number_set
         redirect_to(:action => 'index')
       else
+        flash[:notice] = "Please ensure you've entered values in the correct formats."
         render('new')
       end
 
