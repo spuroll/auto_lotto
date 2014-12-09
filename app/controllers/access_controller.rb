@@ -21,7 +21,6 @@ class AccessController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       session[:name] = authorized_user.name
-      flash[:notice] = "You are now logged in."
       redirect_to(:controller => 'number_set', :action => 'index')
     else
       flash[:notice] = "Invalid username/password combination."

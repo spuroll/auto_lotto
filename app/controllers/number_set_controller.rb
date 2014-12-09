@@ -109,7 +109,7 @@ class NumberSetController < ApplicationController
 
   def destroy
     NumberSet.find(params[:id]).destroy
-    redirect_to(:action => 'index')
+    redirect_to :back
   end
   
   def number_params 
