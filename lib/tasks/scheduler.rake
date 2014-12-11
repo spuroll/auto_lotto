@@ -122,5 +122,8 @@ task :send_emails => :environment do
         @email = email.email
         Usermailer.compare_email(@email, @check, @last_draw, @checkstring).deliver
       end
+      
+      set.drawn_nums = @last_draw
+      
     end         
 end

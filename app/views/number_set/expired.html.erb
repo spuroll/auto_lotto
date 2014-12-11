@@ -18,6 +18,7 @@
 <br>Numbers were checked at 21:00:00 on the 'drawing' dates specified below.
 </div>
 <br>
+
 <table align="center">
   <tr>
     <% count = 0 %>
@@ -25,20 +26,27 @@
       <% count += 1 %>
       <td align="center" bgcolor="LightGrey" class="expired_tickets">
         <%= image_tag("rip.png", :alt => "RIP", :height => 27) %> <br>
+  
         <font size = 4> 
-        Winning Numbers: <br></font>
+          Winning Numbers: <br>
+        </font>
         <font size = 6>
-        ## ## ## ## ## ##</font><br>
-        <font size = 4>
-        Drawn: <%= set.check_date.to_date %> <br>
-        Your Ticket: <%= set.set %>
+          <% if set.drawn_nums %>
+            <%= set.drawn_nums %>
+          <% else %>
+            ## ## ## ## ## ##
+          <% end %>
         </font><br>
-        <strong> Group Members Included: 
         
+        <font size = 4>
+          Drawn: <%= set.check_date.to_date %> <br>
+          Your Ticket: <%= set.set %>
+        </font><br>
+
+        <strong> Group Members Included: 
         <% set.emails.each do |email| %>
           <br><font size = 2><%= email.email %></font>
         <% end %>
-        
         <% if set.emails == [] %>
           (none)</strong>
         <% end %>
