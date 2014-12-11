@@ -1,19 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'access/index'
-
-  get 'access/login'
-
-  get 'number_set/index'
-
-  get 'number_set/show'
-
-  get 'number_set/new'
-
-  get 'number_set/edit'
-
-  get 'number_set/delete'
-
+  root 'number_set#index'
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
 
