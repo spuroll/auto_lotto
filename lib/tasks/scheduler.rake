@@ -124,6 +124,7 @@ task :send_emails => :environment do
       end
       
       set.drawn_nums = @last_draw
+      set.save
       
     end         
 end
