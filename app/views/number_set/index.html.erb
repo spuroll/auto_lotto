@@ -1,24 +1,13 @@
 <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <div class="logo"><%= link_to "Auto Lotto", :action => "index" %></div>
-        <nav>
-          <ul class="nav navbar-nav pull-right">
-            <div class="navlinks"><%= link_to "Active Tickets", :action => "index"%> | |
-            <%= link_to "Expired Tickets", :action => "expired"%> | | 
-            <%= link_to "Logout", {:controller => 'access', :action => 'logout'} %></div>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<%= render 'layouts/header' %>
 
 <h2 align="center">Latest Mega Millions Draw: <%= @last_draw %></h2>
 <h1 align="center">Active Tickets<br>
   <font size=2><%= link_to "(Add More)", :action => "new" %></font>
 </h1>
-<div align=center>Current Date/Time in Nevada: <%= @nevada_now.to_formatted_s(:db) %>
-<br>Numbers checked at 21:00:00 on the 'drawing' dates specified below.
-</div>
+
+<%= render 'layouts/time' %>
+
 <br>
 <table align="center">
   <tr>

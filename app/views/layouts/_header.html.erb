@@ -1,0 +1,14 @@
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="logo"><%= link_to "Auto Lotto", :action => "index" %></div>
+        <nav>
+          <ul class="nav navbar-nav pull-right">
+            <div class="navlinks">
+              <%= link_to "Active Tickets", :action => "index"%> | |
+              <%= link_to "Expired Tickets", :action => "expired"%> | | 
+              <%= link_to "Logout", {:controller => 'access', :action => 'logout'} %>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </header>
