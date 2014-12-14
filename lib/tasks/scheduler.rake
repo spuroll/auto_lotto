@@ -39,8 +39,9 @@ task :send_emails => :environment do
   num_five = substring[start_five..end_five]
   num_six = substring[start_six..end_six]
   
-  @last_draw = "#{num_one} #{num_two} #{num_three} #{num_four} #{num_five} #{num_six}"
-
+  last_draw = "#{num_one} #{num_two} #{num_three} #{num_four} #{num_five} #{num_six}"
+  @last_draw = last_draw
+  
   #Convert to integers for comparison
   num_one = num_one.to_i
   num_two = num_two.to_i
@@ -123,7 +124,7 @@ task :send_emails => :environment do
         Usermailer.compare_email(@email, @check, @last_draw, @checkstring).deliver
       end
       
-      set.drawn_nums = @last_draw
+      set.drawn_nums = last_draw
       set.save
       
     end         
