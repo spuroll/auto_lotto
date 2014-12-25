@@ -37,7 +37,6 @@ class NumberSetController < ApplicationController
   def create
     @id ||= session[:user_id]
     @number_set = NumberSet.new(number_params)
-    @number_set.fresh = true
     @user = User.find(@id)
       if @number_set.save
         @user.number_sets << @number_set
